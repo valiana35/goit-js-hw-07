@@ -12,3 +12,22 @@ body {
   color: #212121;
   line-height: 1.5;
 }
+ul {
+  list-style: none;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px 156px;
+  gap: 48px 24px;
+  align-items: center;
+  justify-content: center;
+}
+.list-item {
+  width: calc((100% - 2 * 24px) / 3);
+}
+.img-list-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 280px;
+}
