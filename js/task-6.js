@@ -9,13 +9,12 @@ const boxes = document.querySelector("#boxes");
 const createBtn = document.querySelector('button[data-create]');
 const destroyBtn = document.querySelector('button[data-destroy]');
 const result = [];
-let selectedAmount = 0;
 function createBoxes(amount) {
   for (let i = 1; i <= amount; i++) {
-    const box = `<div style = "background-color: ${getRandomHexColor()}; width: ${20 + i * 10 + selectedAmount}px; height: ${20 + i * 10 + selectedAmount}px"></div>`;
+    boxes.innerHTML = "";
+    const box = `<div style = "background-color: ${getRandomHexColor()}; width: ${20 + i * 10}px; height: ${20 + i * 10}px"></div>`;
     result.push(box);
   }
-  selectedAmount = 10 * amount + selectedAmount;
   return result.join("");
 }
 function createBoxesBtn() {
