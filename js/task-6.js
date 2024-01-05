@@ -8,10 +8,10 @@ const input = document.querySelector("#controls input");
 const boxes = document.querySelector("#boxes");
 const createBtn = document.querySelector('button[data-create]');
 const destroyBtn = document.querySelector('button[data-destroy]');
-const result = [];
 function createBoxes(amount) {
+  boxes.innerHTML = "";
+  const result = [];
   for (let i = 1; i <= amount; i++) {
-    boxes.innerHTML = "";
     const box = `<div style = "background-color: ${getRandomHexColor()}; width: ${20 + i * 10}px; height: ${20 + i * 10}px"></div>`;
     result.push(box);
   }
@@ -28,6 +28,6 @@ function destroyBoxes() {
   input.value = "";
   boxes.innerHTML = "";
 }
-boxes.insertAdjacentHTML("beforeend", result);
+boxes.innerHTML = createBoxes();
 createBtn.addEventListener("click", createBoxesBtn);
 destroyBtn.addEventListener("click", destroyBoxes);
