@@ -11,15 +11,19 @@ function createBoxes(amount) {
   boxes.innerHTML = "";
   const result = [];
   for (let i = 1; i <= amount; i++) {
-    const box = `<div style = "background-color: ${getRandomHexColor()}; width: ${20 + i * 10}px; height: ${20 + i * 10}px"></div>`;
+    const box = document.createElement('div');
+    box.style.backgroundColor = `${getRandomHexColor()}`;
+    box.style.width = `${20 + i * 10}px`;
+    box.style.height = `${20 + i * 10}px`;
+    boxes.append(box);
     result.push(box);
   }
   return result.join("");
 }
 function createBoxesBtn() {
-  const amount = parseInt(input.value);
+  const amount = Number(input.value);
   if (amount >= 1 && amount <= 100) {
-    boxes.innerHTML = createBoxes(amount);
+    createBoxes(amount);
     input.value = "";
   }
 }
@@ -27,6 +31,8 @@ function destroyBoxes() {
   input.value = "";
   boxes.innerHTML = "";
 }
-boxes.innerHTML = createBoxes();
 createBtn.addEventListener("click", createBoxesBtn);
 destroyBtn.addEventListener("click", destroyBoxes);
+createBtn.classList.add("crBtn");
+destroyBtn.classList.add("dsBtn");
+input.classList.add("inputStyle");
