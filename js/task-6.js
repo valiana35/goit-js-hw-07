@@ -9,16 +9,13 @@ const createBtn = document.querySelector('button[data-create]');
 const destroyBtn = document.querySelector('button[data-destroy]');
 function createBoxes(amount) {
   boxes.innerHTML = "";
-  const result = [];
   for (let i = 1; i <= amount; i++) {
     const box = document.createElement('div');
     box.style.backgroundColor = `${getRandomHexColor()}`;
     box.style.width = `${20 + i * 10}px`;
     box.style.height = `${20 + i * 10}px`;
-    boxes.append(box);
-    result.push(box);
+    boxes.appendChild(box);
   }
-  return result.join("");
 }
 function createBoxesBtn() {
   const amount = Number(input.value);
